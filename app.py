@@ -11,5 +11,9 @@ def home():
 def about():
     return flask.render_template('about.html')
 
+@app.route('/post')
+def post():
+    return flask.render_template('post.html')
+
 if __name__ == "__main__":
   app.run()
