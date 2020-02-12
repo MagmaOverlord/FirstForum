@@ -6,9 +6,12 @@
   </head>
   <body>
     <div id="nav">
-      Links to other pages should go here.
+        <a href="/">Home</a>
+        <a href="/about">About</a>
     </div>
+    {% block content %}
     <h1>Welcome to My Blog!</h1>
+    {% endblock %}
   </body>
 <script src="static/index.js"></script>
 </html>
