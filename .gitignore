@@ -1,0 +1,6 @@
+.vs/
+.vsp
+.vspx
+
+__pycashe__/
+*.pyc
