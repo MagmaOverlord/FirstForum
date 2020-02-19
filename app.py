@@ -24,9 +24,15 @@ def books():
 def games():
     return flask.render_template('games.html')
 
-@app.route('/general')
+@app.route('/general', methods=['GET', 'POST'])
 def general():
-    return flask.render_template('general.html')
+    if request.method == "GET": 
+        return flask.render_template('general.html', posts = generalP)
+    else:
+        post = request.json
+        generalP.append(post)
+        return flask.render_template('general.html', posts = generalP)
+        
 
 @app.route('/tv')
 def tv():
