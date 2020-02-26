@@ -16,13 +16,23 @@ def home():
 def about():
     return flask.render_template('about.html')
 
-@app.route('/books')
+@app.route('/books', methods=['GET', 'POST'])
 def books():
-    return flask.render_template('books.html')
+    if request.method == "GET": 
+        return flask.render_template('books.html', posts = booksP)
+    else:
+        post = request.json
+        booksP.append(post)
+        return flask.render_template('books.html', posts = booksP)
 
-@app.route('/games')
+@app.route('/games', methods=['GET', 'POST'])
 def games():
-    return flask.render_template('games.html')
+    if request.method == "GET": 
+        return flask.render_template('games.html', posts = gamesP)
+    else:
+        post = request.json
+        gamesP.append(post)
+        return flask.render_template('games.html', posts = gamesP)
 
 @app.route('/general', methods=['GET', 'POST'])
 def general():
@@ -34,9 +44,14 @@ def general():
         return flask.render_template('general.html', posts = generalP)
         
 
-@app.route('/tv')
+@app.route('/tv', methods=['GET', 'POST'])
 def tv():
-    return flask.render_template('tv.html')
+    if request.method == "GET": 
+        return flask.render_template('tv.html', posts = tvP)
+    else:
+        post = request.json
+        tvP.append(post)
+        return flask.render_template('tv.html', posts = tvP)
 
 @app.route('/post')
 def post():

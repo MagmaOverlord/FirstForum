@@ -1,9 +1,15 @@
 {% extends "index.html" %}
 {% block content %}
+
 {% block header %}
 {% endblock %}
 
 <!--Posts should go here-->
+{% for post in posts %}
+    <h3>{{ post['subject'] }}</h3>
+    <h4>By {{ post['name']}}</h4>
+    <p>{{ post['post']}}</p>
+{% endfor %}
 
 <div id="postsSection"></div>
 <div id="post">
